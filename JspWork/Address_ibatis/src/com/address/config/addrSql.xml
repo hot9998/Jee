@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+<typeAlias alias="addrVO" type="com.address.model.AddressVO"/>
+<typeAlias alias="zipVO" type="com.address.model.ZipcodeVO"/>
+<select id="listData" resultClass="addrVO">
+select * from address order by num
+</select>
+<!-- insert  -->
+<insert id="insertData" parameterClass="addrVO">
+insert into address values(address_seq.nextval,#name#,#addr#,#zipcode#,#tel#)
+<!-- parameterClass로 값을 받아오고 #밸류#을 쓰면 해당값을 불러옴 -->
+</insert>
+<!-- view  -->
+<!-- parameterClass는 받아오는 값의 유형을 적어줌  -->
+<select id="viewData" parameterClass="Integer" resultClass="addrVO">
+select * from address where num=#num#
+</select>
+<!-- delete  -->
+<delete id="deleteData" parameterClass="Integer">
+delete from address where num=#num#
+</delete>
+<!-- update  -->
+<update id="updateData" parameterClass="addrVO">
+update address set name=#name#,addr=#addr#,zipcode=#zipcode#,tel=#tel# where num=#num#
+</update>
+<!-- zipdata  -->
+<select id="zipData" parameterClass="String" resultClass="zipVO">
+select * from zipcode where dong like '%'||#dong#||'%'
+<!-- #문자#를 쓰면 ''를 포함하기 때문에 연결기호를 사용해야 함 -->
+</select>
+</sqlMap>

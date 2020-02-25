@@ -1,0 +1,78 @@
+package FirstProject;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+
+public class Anju extends JFrame {
+
+	private JPanel contentPane;
+	private JPanel panel;
+	private JLabel label;
+	private JLabel label_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Anju frame = new Anju();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Anju() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 460, 343);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		contentPane.add(getPanel(), BorderLayout.CENTER);
+	}
+
+	private JPanel getPanel() {
+		if (panel == null) {
+			panel = new JPanel();
+			panel.setBackground(Color.PINK);
+			panel.setLayout(null);
+			panel.add(getLabel());
+			panel.add(getLabel_1());
+		}
+		return panel;
+	}
+	private JLabel getLabel() {
+		if (label == null) {
+			label = new JLabel("안주 명");
+			label.setHorizontalAlignment(SwingConstants.CENTER);
+			label.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+			label.setBounds(28, 41, 92, 37);
+		}
+		return label;
+	}
+	private JLabel getLabel_1() {
+		if (label_1 == null) {
+			label_1 = new JLabel("안주 이름");
+			label_1.setHorizontalAlignment(SwingConstants.CENTER);
+			label_1.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+			label_1.setBounds(28, 114, 92, 37);
+		}
+		return label_1;
+	}
+}

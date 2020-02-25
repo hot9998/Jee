@@ -1,0 +1,115 @@
+package FirstProject;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class Anju extends JFrame {
+
+	private JPanel contentPane;
+	private JPanel panel;
+	private JLabel label;
+	private JLabel label_1;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JButton btnNewButton;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Anju frame = new Anju();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Anju() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 460, 343);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		contentPane.add(getPanel(), BorderLayout.CENTER);
+	}
+
+	private JPanel getPanel() {
+		if (panel == null) {
+			panel = new JPanel();
+			panel.setBackground(Color.PINK);
+			panel.setLayout(null);
+			panel.add(getLabel());
+			panel.add(getLabel_1());
+			panel.add(getTextField());
+			panel.add(getTextField_1());
+			panel.add(getBtnNewButton());
+		}
+		return panel;
+	}
+	private JLabel getLabel() {
+		if (label == null) {
+			label = new JLabel("안주 명");
+			label.setHorizontalAlignment(SwingConstants.CENTER);
+			label.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+			label.setBounds(83, 46, 92, 37);
+		}
+		return label;
+	}
+	private JLabel getLabel_1() {
+		if (label_1 == null) {
+			label_1 = new JLabel("안주 이름");
+			label_1.setHorizontalAlignment(SwingConstants.CENTER);
+			label_1.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+			label_1.setBounds(83, 119, 92, 37);
+		}
+		return label_1;
+	}
+	private JTextField getTextField() {
+		if (textField == null) {
+			textField = new JTextField();
+			textField.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+			textField.setBackground(new Color(219, 112, 147));
+			textField.setBounds(187, 46, 165, 33);
+			textField.setColumns(10);
+		}
+		return textField;
+	}
+	private JTextField getTextField_1() {
+		if (textField_1 == null) {
+			textField_1 = new JTextField();
+			textField_1.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+			textField_1.setBackground(new Color(219, 112, 147));
+			textField_1.setColumns(10);
+			textField_1.setBounds(187, 119, 165, 33);
+		}
+		return textField_1;
+	}
+	private JButton getBtnNewButton() {
+		if (btnNewButton == null) {
+			btnNewButton = new JButton("추가");
+			btnNewButton.setBackground(Color.ORANGE);
+			btnNewButton.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+			btnNewButton.setBounds(169, 211, 81, 37);
+		}
+		return btnNewButton;
+	}
+}

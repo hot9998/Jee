@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+function example(){
+	alert("1");
+	setTimeout(function(){ // setTimeout : 비동기 함수
+	/* 	비동기 방식은 실행 중 다른작업 허용 */
+		alert("2");	
+	}, 0);	
+	alert("3");
+}
+example();
+</script>
+</body>
+</html>

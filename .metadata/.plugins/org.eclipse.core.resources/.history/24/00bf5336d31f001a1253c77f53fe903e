@@ -1,0 +1,207 @@
+package FirstProject;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTabbedPane;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
+import javax.swing.JTextField;
+
+public class HopeMain extends JFrame {
+
+	private JPanel contentPane;
+	private JPanel panel;
+	private JButton table1;
+	private JButton table2;
+	private JButton table3;
+	private JButton table4;
+	private JButton table5;
+	private JButton btnNewButton;
+	private JLabel lblNewLabel_1;
+	private JButton button;
+	private JLabel lblNewLabel;
+	private JLabel label;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					HopeMain frame = new HopeMain();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public HopeMain() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 767, 583);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		contentPane.add(getPanel(), BorderLayout.CENTER);
+	}
+	private JPanel getPanel() {
+		if (panel == null) {
+			panel = new JPanel();
+			panel.setBackground(Color.PINK);
+			panel.setLayout(null);
+			panel.add(getTable1());
+			panel.add(getTable2());
+			panel.add(getTable3());
+			panel.add(getTable4());
+			panel.add(getTable5());
+			panel.add(getBtnNewButton());
+			panel.add(getLblNewLabel_1());
+			panel.add(getButton());
+			panel.add(getLblNewLabel());
+			panel.add(getLabel());
+			panel.add(getTextField());
+			panel.add(getTextField_1_1());
+		}
+		return panel;
+	}
+	private JButton getTable1() {
+		if (table1 == null) {
+			table1 = new JButton("테이블1");
+			table1.setBackground(Color.ORANGE);
+			table1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
+			table1.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+			table1.setBounds(30, 60, 103, 114);
+		}
+		return table1;
+	}
+	private JButton getTable2() {
+		if (table2 == null) {
+			table2 = new JButton("테이블2");
+			table2.setBackground(Color.GREEN);
+			table2.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+			table2.setBounds(188, 60, 103, 114);
+		}
+		return table2;
+	}
+	private JButton getTable3() {
+		if (table3 == null) {
+			table3 = new JButton("테이블3");
+			table3.setBackground(Color.YELLOW);
+			table3.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+			table3.setBounds(30, 207, 103, 114);
+		}
+		return table3;
+	}
+	private JButton getTable4() {
+		if (table4 == null) {
+			table4 = new JButton("테이블4");
+			table4.setBackground(Color.RED);
+			table4.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+			table4.setBounds(188, 207, 103, 114);
+		}
+		return table4;
+	}
+	private JButton getTable5() {
+		if (table5 == null) {
+			table5 = new JButton("테이블5");
+			table5.setForeground(Color.WHITE);
+			table5.setBackground(Color.BLUE);
+			table5.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+			table5.setBounds(30, 362, 262, 114);
+		}
+		return table5;
+	}
+	private JButton getBtnNewButton() {
+		if (btnNewButton == null) {
+			btnNewButton = new JButton("안주 추가");
+			btnNewButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					new Anju();
+				}
+			});
+			btnNewButton.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+			btnNewButton.setBounds(377, 453, 116, 23);
+		}
+		return btnNewButton;
+	}
+	private JLabel getLblNewLabel_1() {
+		if (lblNewLabel_1 == null) {
+			lblNewLabel_1 = new JLabel("인생 술집");
+			lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD | Font.ITALIC, 25));
+			lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNewLabel_1.setBounds(284, 10, 138, 40);
+		}
+		return lblNewLabel_1;
+	}
+	private JButton getButton() {
+		if (button == null) {
+			button = new JButton("재고 관리");
+			button.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+			button.setBounds(517, 453, 116, 23);
+		}
+		return button;
+	}
+	private JLabel getLblNewLabel() {
+		if (lblNewLabel == null) {
+			lblNewLabel = new JLabel("안주 판매 갯수");
+			lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+			lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+			lblNewLabel.setBounds(340, 83, 153, 64);
+		}
+		return lblNewLabel;
+	}
+	private JLabel getLabel() {
+		if (label == null) {
+			label = new JLabel("판매액");
+			label.setHorizontalAlignment(SwingConstants.RIGHT);
+			label.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+			label.setBounds(340, 230, 153, 64);
+		}
+		return label;
+	}
+	private JTextField getTextField() {
+		if (textField == null) {
+			textField = new JTextField();
+			textField.setBorder(null);
+			textField.setOpaque(false);
+			textField.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+			textField.setBackground(Color.PINK);
+			textField.setBounds(421, 151, 186, 69);
+			textField.setColumns(10);
+		}
+		return textField;
+	}
+	private JTextField getTextField_1_1() {
+		if (textField_1 == null) {
+			textField_1 = new JTextField();
+			textField_1.setOpaque(false);
+			textField_1.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+			textField_1.setColumns(10);
+			textField_1.setBorder(null);
+			textField_1.setBackground(Color.PINK);
+			textField_1.setBounds(421, 304, 186, 69);
+		}
+		return textField_1;
+	}
+}
