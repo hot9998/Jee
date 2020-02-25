@@ -4,6 +4,7 @@
 <jsp:useBean id="QueryBean" scope="page" class="db.beans.QueryBean" />
 <jsp:setProperty property="*" name="QueryBean" />
 <%
+	// 캐쉬 제거
 	response.setHeader("Cache-Control", "no-store");
 	response.setHeader("Pragma", "no-cache");
 	response.setDateHeader("Expires", 0);
@@ -54,15 +55,3 @@
 	}
 	
 %>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
