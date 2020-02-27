@@ -39,5 +39,5 @@
 	out.print("}");
 	out.print("]");
 	
-	System.out.println("res"+ res);
+	//System.out.println("res"+ res);
 %>

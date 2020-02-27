@@ -145,7 +145,7 @@ public class QueryBean {
 
 		PreparedStatement ps = null;
 
-		sb.append("update user_info_sample set u_name=?, u_phone=?,u_grade=?,write_time=sysdate where u_id = ?");
+		sb.append("update user_info_sample set u_name=?, u_phone=?,u_grade=? where u_id = ?");
 //		sb.append("update user_info_sample ");
 //		sb.append("set u_name='"+name);
 //		sb.append("',u_phone='"+phone);
