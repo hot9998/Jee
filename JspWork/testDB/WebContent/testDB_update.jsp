@@ -12,15 +12,21 @@
 	request.setCharacterEncoding("utf-8");
 
 	String id = request.getParameter("id") == null ? "" : request.getParameter("id").trim();
+	String name = request.getParameter("name") == null ? "" : request.getParameter("name").trim();
+	String phone = request.getParameter("phone") == null ? "" : request.getParameter("phone").trim();
+	String grade = request.getParameter("grade") == null ? "" : request.getParameter("grade").trim();
 
-	//System.out.println("삭제할 ID: " + id);
-	
+/* 	System.out.println("id: " + id);
+	System.out.println("name: " + name);
+	System.out.println("phone: " + phone);
+	System.out.println("grade: " + grade); */
+
 	QueryBean.getConnection();
 	
 	int res=0;
 
 	try {
-		res = QueryBean.deleteUserInfo(id);
+		res = QueryBean.updateUserInfo(id, name, phone, grade);
 	} catch (Exception e) {
 		out.print(e.toString());
 	} finally {

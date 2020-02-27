@@ -70,7 +70,7 @@ public class QueryBean {
 			res.add(rs.getString(4));
 			res.add(rs.getString(5));
 		}
-		System.out.println(sb.toString());
+//		System.out.println(sb.toString());
 		return res;
 	}
 
@@ -129,9 +129,48 @@ public class QueryBean {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (ps != null) {
+				if (ps != null)
 					ps.close();
-				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	public int updateUserInfo(String id, String name, String phone, String grade) {
+		int result = 0;
+
+		StringBuffer sb = new StringBuffer();
+
+		PreparedStatement ps = null;
+
+		sb.append("update user_info_sample set u_name=?, u_phone=?,u_grade=?,write_time=sysdate where u_id = ?");
+//		sb.append("update user_info_sample ");
+//		sb.append("set u_name='"+name);
+//		sb.append("',u_phone='"+phone);
+//		sb.append("',u_grade="+grade);
+//		sb.append(",write_time=sysdate");
+//		sb.append(" where u_id='"+id+"'");				
+		
+//		System.out.println(sb.toString());		
+
+		try {
+			ps = con.prepareStatement(sb.toString());
+			ps.clearParameters();
+			ps.setString(1, name);
+			ps.setString(2, phone);
+			ps.setString(3, grade);
+			ps.setString(4, id);
+
+			result = ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null)
+					ps.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -139,3 +178,4 @@ public class QueryBean {
 		return result;
 	}
 }
+
